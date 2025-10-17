@@ -1,48 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(135deg, #f0f4ff, #fafafa);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  align-items: start;
+}
+
+
 #users {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1.5rem;
-  padding: 2rem;
-  max-width: 1000px;
-  margin: 0 auto;
-  background: #fafafa;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  width: 90%;
+  max-width: 1200px;
+  padding: 3rem 1rem;
 }
 
 
 .user {
-  background: white;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
   text-align: center;
-  padding: 1.5rem 1rem;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  padding: 2rem 1rem 1.5rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.user::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  transform: rotate(45deg);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 0;
+}
+
+.user:hover::before {
+  opacity: 0.1;
 }
 
 .user:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+  transform: translateY(-8px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
 }
 
-
+/* images*/
 .user img {
-  width: 80px;
-  height: 80px;
+  width: 90px;
+  height: 90px;
   border-radius: 50%;
-  margin: 0.5rem 0 1rem;
-  border: 2px solid #ddd;
+  border: 3px solid #2575fc;
+  padding: 3px;
+  background-color: #fff;
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 1;
 }
 
-
+/* Name*/
 .user h4 {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
+  color: #222;
   font-weight: 600;
-  color: #333;
   margin-bottom: 0.3rem;
+  position: relative;
+  z-index: 1;
 }
 
-
+/*  Email*/
 .user figcaption {
-  font-size: 0.9rem;
   color: #666;
+  font-size: 0.9rem;
+  position: relative;
+  z-index: 1;
+  transition: color 0.3s ease;
   word-break: break-all;
+}
+
+.user:hover figcaption {
+  color: #2575fc;
 }
